@@ -1,0 +1,5 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+.mat-dialog-container, .cdk-overlay-pane {
+    visibility: hidden !important;
+}
