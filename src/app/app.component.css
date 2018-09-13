@@ -1,0 +1,6 @@
+@import "./bootstrap/bootstrap4-vibrant-sea.css";
+
+p {
+    font-size: 25px;
+    color: red;
+}
