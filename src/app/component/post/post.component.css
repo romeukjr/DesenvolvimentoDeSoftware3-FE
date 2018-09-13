@@ -1,0 +1,27 @@
+.img-post {
+  max-width: 100px;
+}
+
+.d-block{
+  margin-left: 50px;
+}
+
+.title{
+  margin-left: 10px;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.post {
+  background-color: #ffffff;
+}
+
+ul {
+ list-style-type: none;
+}
+
+.comment-list-component {
+  width: 100%;
+}

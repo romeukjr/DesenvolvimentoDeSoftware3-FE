@@ -1,0 +1,16 @@
+<div class="container">
+  <section>
+    <app-post-list></app-post-list>
+  </section>
+  <aside  style="display: block; float: right;" [hidden]="!session.isUserLogged()">
+    <div #divActions>
+      <button #btnCreatePost class="ht-tm-element btn btn-primary" (click)="openCreatePostDialog()">Criar Post</button>
+    </div>
+      <div class="listBox">
+        <h6>Usuários Ativos</h6>
+        <div *ngFor="let item of userLinks">
+          <span class="link" (click)="linkClick(item)">{{ item }}</span>
+        </div>
+      </div>
+  </aside>
+</div>

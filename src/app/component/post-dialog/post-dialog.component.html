@@ -1,0 +1,30 @@
+<div class="col-sm-4">
+  <div class="jumbotron">
+    <form novalidate #form="ngForm">
+      <div class="form-row">
+        <div class="col">
+          <h6>Título</h6>
+          <div class="form-group">
+            <input type="text" name="title" class="form-control" placeholder="Insira o título aqui..." required minlength="1" ngModel>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col">
+          <h6>Texto</h6>
+          <div class="form-group">
+            <textarea name="text" class="form-control" placeholder="Insira o texto aqui..." rows="5" required required minlength="5" ngModel></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col">
+          <div class="d-flex justify-content-end">
+            <button type="submit" (click)="onClose()" class="btn btn-primary btn-form">Cancelar</button>
+            <button type="submit" [disabled]="isPostInvalid()" (click)="onSubmitPost()"class="btn btn-primary btn-form">Criar</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

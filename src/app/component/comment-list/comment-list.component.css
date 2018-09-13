@@ -1,0 +1,12 @@
+.comment-list-component {
+  width: 100%;
+}
+
+.link {
+  color: #1cb0f6;
+  cursor: pointer;
+}
+
+.link:hover {
+  text-decoration: underline;
+}

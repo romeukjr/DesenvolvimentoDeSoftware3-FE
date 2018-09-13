@@ -1,0 +1,7 @@
+.link > a {
+  margin-right: 5vh;
+}
+
+.link > span {
+  float: right;
+}

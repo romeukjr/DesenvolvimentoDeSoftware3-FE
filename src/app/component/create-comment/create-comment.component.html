@@ -1,0 +1,11 @@
+<form #comment="ngForm" (ngSubmit)="onSubmitComment(comment); commentText.value = ''">
+  <div class="form-group">
+    <label>Comment as:</label>
+    <span class="text-bold">{{ this.session.userName }}</span>
+  </div>
+  <div class="form-group">
+    <label>Text</label>
+    <input #commentText type="text" placeholder="Enter text" name="text" class="form-control" ngModel>
+  </div>
+  <input class="btn btn-default" [disabled]="isCommentDisabled(comment)" type="submit" value="Add Comment">
+</form>

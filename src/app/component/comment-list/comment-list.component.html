@@ -1,0 +1,22 @@
+<div class="comment-list-component">
+  <div class="comment-list-header">
+    <p>
+      <span (click)="toggleCommentVisibility()">
+        <i class="fa fa-commenting"></i>
+        <span class="link" [ngPlural]="post.comments.length">
+            <ng-template ngPluralCase="0">No comments yet</ng-template>
+            <ng-template ngPluralCase="1">{{ this.post.comments.length }} comment</ng-template>
+            <ng-template ngPluralCase="other">{{ this.post.comments.length }} comments</ng-template>
+        </span>
+      </span>
+    </p>
+  </div>
+  <ul *ngIf="showComments" id="comments-list" class="list-group list-group-flush"> 
+    <li *ngFor="let comment of post.comments" class="list-group-item list-group-item-action">
+        <app-comment [comment]="comment"></app-comment>
+    </li>
+    <li *ngIf="session.isUserLogged()" class="list-group-item list-group-item-action">
+      <app-create-comment [post]="post"></app-create-comment>
+    </li>
+  </ul>
+</div>
