@@ -1,9 +1,9 @@
 import { Component, OnInit, ApplicationModule } from '@angular/core';
+import { MatDialog } from '@angular/material';
+import { Http } from '@angular/http';
 import { TopoComponent } from './component/topo/topo.component';
 import { PainelComponent } from './component/painel/painel.component';
-import { MatDialog } from '@angular/material';
 import { Session } from './model/entity/Session';
-import { Http } from '@angular/http';
 import { debug } from 'util';
 
 @Component({
