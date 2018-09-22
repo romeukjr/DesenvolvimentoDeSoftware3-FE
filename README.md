@@ -35,4 +35,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Info
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.0-beta.4.
