@@ -5,11 +5,11 @@ import { Comment } from '../../model/entity/Comment';
 import { NgForm } from '@angular/forms';
 
 @Component({
-  selector: 'app-create-comment',
-  templateUrl: './create-comment.component.html',
-  styleUrls: ['./create-comment.component.css']
+  selector: 'app-comment-create',
+  templateUrl: './comment-create.component.html',
+  styleUrls: ['./comment-create.component.css']
 })
-export class CreateCommentComponent implements OnInit {
+export class CommentCreateComponent implements OnInit {
   @Input() post: Post;
   
   constructor(private session: Session) { }

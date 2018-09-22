@@ -16,7 +16,7 @@
         <app-comment [comment]="comment"></app-comment>
     </li>
     <li *ngIf="session.isUserLogged()" class="list-group-item list-group-item-action">
-      <app-create-comment [post]="post"></app-create-comment>
+      <app-comment-create [post]="post"></app-comment-create>
     </li>
   </ul>
 </div>
