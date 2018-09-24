@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   private logIn(): void {
     const that = this;
     this.openLoginDialog();
-    
+    debugger;
     this.dialogRef.afterClosed().subscribe(result => {
       if (result) {
         debugger;

@@ -18,12 +18,8 @@ export default class UserAPI {
         this.getUsers();
     }
 
-    public findUser(email: String, password: String): User {
-        let id: string = "";
-
-        let user = this.users.find((u) => u.email == email && u.password == password);
-
-        return user;
+    public createUser(user: User) {
+        this.api.create(JSON.stringify(user), this.REQUEST_URL);
     }
 
     public async getUsers() {
@@ -41,6 +37,14 @@ export default class UserAPI {
         await observer.subscribe((data: User) => {
             user = data
         });
+
+        return user;
+    }
+
+    public findUser(email: String, password: String): User {
+        let id: string = "";
+
+        let user = this.users.find((u) => u.email == email && u.password == password);
 
         return user;
     }

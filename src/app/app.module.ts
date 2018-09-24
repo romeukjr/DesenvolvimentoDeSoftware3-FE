@@ -27,6 +27,8 @@ import { CommentCreateComponent } from './component/comment-create/comment-creat
 import { CommentListComponent } from './component/comment-list/comment-list.component';
 import { CommentComponent } from './component/comment/comment.component';
 import { AboutComponent } from './component/about/about.component';
+import { SignupComponent } from './component/signup/signup.component';
+import { SignupDialogComponent } from './component/signup-dialog/signup-dialog.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { AboutComponent } from './component/about/about.component';
     CommentCreateComponent,
     CommentListComponent,
     CommentComponent,
-    AboutComponent
+    AboutComponent,
+    SignupComponent,
+    SignupDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -64,6 +68,8 @@ import { AboutComponent } from './component/about/about.component';
   entryComponents: [
     LoginComponent,
     LoginDialogComponent,
+    SignupComponent,
+    SignupDialogComponent,
     PainelComponent,
     PostDialogComponent
   ]

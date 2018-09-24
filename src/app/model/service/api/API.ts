@@ -8,7 +8,7 @@ export default class API<T> {
     
     constructor(private http: Http) {}
 
-    public create(body: JSON, request?: String): void {
+    public create(body: string, request?: String): void {
         const requestUrl = this.URL + request;
         this.http.post(requestUrl, body);
     }

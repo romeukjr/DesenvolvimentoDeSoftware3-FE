@@ -1,0 +1,26 @@
+<div class="col-sm-4">
+  <div class="jumbotron">
+    <h4>Sign Up</h4>
+    <form novalidate #form="ngForm">
+      <div class="form-group">
+        <input name="name" type="text" class="form-control" id="name" placeholder="Digite seu nome" ngModel>
+      </div>
+      <div class="form-group">
+        <span class="ng-error" *ngIf="isEmailRequired">
+          Required!</span>
+        <span class="ng-error" *ngIf="isEmailInvalid">
+          Not valid email!</span>
+        <input name="email" (keyup)="emailChanged()" type="email" class="form-control" id="email" placeholder="Digite seu e-mail" ngModel>
+      </div>
+      <div class="form-group">
+        <span class="ng-error" *ngIf="isPasswordInvalid">
+          Numbers and Upper Case letters required</span>
+        <input name="password" (keyup)="passwordChanged()" type="password" class="form-control" id="senha" placeholder="Digite sua senha" ngModel>
+      </div>
+      <div class="buttons">
+        <button type="button" class="btn btn-primary" (click)="onConfirm()">Sign Up</button>
+        <button type="button" class="btn btn-primary" (click)="onCancel()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
