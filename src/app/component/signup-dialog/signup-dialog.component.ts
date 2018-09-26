@@ -35,11 +35,12 @@ export class SignupDialogComponent implements OnInit {
       return;
     }
 
-    var user = new User(this.form.value.email, this.form.value.password, this.form.name, Role.REGULAR);
+    var user = new User(this.form.value.email, this.form.value.password, this.form.value.name, Role.REGULAR);
+    const userFound = this.session.apiManager.UserApi.findUser(user.email, user.password);
 
-    if (true) {//TODO: Check if user exists, if it does not, proceed...
+    if (!userFound) {//TODO: Check if user exists, if it does not, proceed...
       this.session.apiManager.UserApi.createUser(user);
-      this.session.logIn(user.email, user.password);
+      this.session.apiManager.UserApi.refreshUsers();
       this.thisDialogRef.close(this.session.getUser());
     }
   }

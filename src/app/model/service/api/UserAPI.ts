@@ -15,14 +15,14 @@ export default class UserAPI {
 
     private assemble(): void {
         this.api = new API<User>(this.http);
-        this.getUsers();
+        this.refreshUsers();
     }
 
     public createUser(user: User) {
-        this.api.create(JSON.stringify(user), this.REQUEST_URL);
+        this.api.create(user, this.REQUEST_URL);
     }
 
-    public async getUsers() {
+    public async refreshUsers() {
         let observer = await this.api.getDataCollection(this.REQUEST_URL);
 
         await observer.subscribe((data: User[]) => {
@@ -42,9 +42,11 @@ export default class UserAPI {
     }
 
     public findUser(email: String, password: String): User {
-        let id: string = "";
+        let user;
 
-        let user = this.users.find((u) => u.email == email && u.password == password);
+        if (this.users && this.users.length > 0) {
+            user = this.users.find((u) => u.email == email && u.password == password);
+        }
 
         return user;
     }
