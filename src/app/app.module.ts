@@ -20,15 +20,14 @@ import { PainelComponent } from './component/painel/painel.component';
 import { PostListComponent } from './component/post-list/post-list.component';
 import { PostDialogComponent } from './component/post-dialog/post-dialog.component';
 import { PostComponent } from './component/post/post.component';
-import { LoginDialogComponent } from './component/login-dialog/login-dialog.component';
-import { LoginComponent } from './component/login/login.component';
 import { FeaturesComponent } from './component/features/features.component';
 import { CommentCreateComponent } from './component/comment-create/comment-create.component';
 import { CommentListComponent } from './component/comment-list/comment-list.component';
 import { CommentComponent } from './component/comment/comment.component';
 import { AboutComponent } from './component/about/about.component';
-import { SignupComponent } from './component/signup/signup.component';
 import { SignupDialogComponent } from './component/signup-dialog/signup-dialog.component';
+import { UserMenuComponent } from './component/user-menu/user-menu.component';
+import { SigninDialogComponent } from './component/signin-dialog/signin-dialog.component';
 
 @NgModule({
   declarations: [
@@ -38,15 +37,14 @@ import { SignupDialogComponent } from './component/signup-dialog/signup-dialog.c
     PostListComponent,
     PostDialogComponent,
     PostComponent,
-    LoginDialogComponent,
-    LoginComponent,
     FeaturesComponent,
     CommentCreateComponent,
     CommentListComponent,
     CommentComponent,
     AboutComponent,
-    SignupComponent,
-    SignupDialogComponent
+    SignupDialogComponent,
+    UserMenuComponent,
+    SigninDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -66,9 +64,8 @@ import { SignupDialogComponent } from './component/signup-dialog/signup-dialog.c
   ],
   bootstrap: [AppComponent],
   entryComponents: [
-    LoginComponent,
-    LoginDialogComponent,
-    SignupComponent,
+    UserMenuComponent,
+    SigninDialogComponent,
     SignupDialogComponent,
     PainelComponent,
     PostDialogComponent

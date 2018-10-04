@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser';
-import { LoginComponent } from '../login/login.component';
 import { MatDialog } from '@angular/material';
 import { Session } from '../../model/entity/Session';
-import { SignupComponent } from '../signup/signup.component';
+import { UserMenuComponent } from '../user-menu/user-menu.component';
 
 @Component({
     selector: 'app-topo',
@@ -13,14 +12,12 @@ import { SignupComponent } from '../signup/signup.component';
 
 export class TopoComponent implements OnInit {
     
-    private loginComponent: LoginComponent;
-    private signupComponent: SignupComponent;
+    private userMenuComponent: UserMenuComponent;
     public titulo: string = 'BrowserBook';
 
     constructor(private matDialog: MatDialog, private session: Session) { }
 
     ngOnInit() {
-        this.loginComponent = new LoginComponent(this.matDialog, this.session);
-        this.signupComponent = new SignupComponent(this.matDialog, this.session);
+        this.userMenuComponent = new UserMenuComponent(this.matDialog, this.session);
     }
 }
