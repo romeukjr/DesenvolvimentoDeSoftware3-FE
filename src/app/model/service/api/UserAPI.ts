@@ -23,10 +23,11 @@ export default class UserAPI {
     }
 
     public async refreshUsers() {
+        let that = this;
         let observer = await this.api.getDataCollection(this.REQUEST_URL);
 
         await observer.subscribe((data: User[]) => {
-            this.users =  data;
+            that.users =  data;
         });
     }
 
