@@ -1,7 +1,8 @@
 import { Comment } from "./Comment";
 import { User } from "./User";
+import { IJsonGenerator } from "./ijson-generator";
 
-export class Post {
+export class Post implements IJsonGenerator{
     private _id: any;
     title: string;
     description: string;
@@ -19,6 +20,17 @@ export class Post {
         this.comments = comments;
         this.description = description;
         this._author = author;
+    }
+
+    public json(): any {
+        return {
+            title: this.title,
+            link: this.link,
+            date: this.date,
+            votes: this.votes,
+            description: this.description,
+            _author: this._author
+        };
     }
 
     public upVote(): number {

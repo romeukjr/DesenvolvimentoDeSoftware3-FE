@@ -1,0 +1,19 @@
+<div #divAppUserMenu>
+  <div #divUserMenu class="btn-group" [hidden]="!session.isUserLogged()">
+      <button #btnDropDown class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{ this.loggedUser ? this.loggedUser.name : '' }}
+      </button>
+      <div #ddnItems class="dropdown-menu dropdown-menu-right">
+          <button #btnsignOut class="dropdown-item" (click)="signOut()">Sign out</button>
+      </div>
+  </div>
+  <div #divSign [hidden]="session.isUserLogged()">
+    <div #divSignIn class="btn-group">
+        <button #btnSignIn class="btn btn-primary" (click)="signIn()">Sign in</button>
+    </div>
+    <span>&nbsp;&nbsp;or&nbsp;&nbsp;</span>
+    <div #divSignUp class="btn-group">
+        <button #btnSignUp class="btn btn-primary" (click)="signUp()">Sign Up</button>
+    </div>
+    </div>
+</div>

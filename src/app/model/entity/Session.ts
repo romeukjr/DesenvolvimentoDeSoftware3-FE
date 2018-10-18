@@ -10,6 +10,7 @@ export class Session {
 
     private user: User;
     private storage: StorageService;
+    private isUserAuthenticated: boolean;
     public apiManager: APIManager;
 
 	constructor(private http: Http) {
@@ -23,10 +24,9 @@ export class Session {
     }
 
     private authenticate(email: string, password: string) {
-        //const user = new User(email, password);//TODO: Get user by email via the data base service
-        //user.name = user.email;
         const user = this.apiManager.UserApi.findUser(email, password);
         this.setUser(user);
+        this.isUserAuthenticated = !!user;
     }
 
     private initiateStorage(): void {
@@ -68,7 +68,7 @@ export class Session {
     }
 
     public isUserLogged(): boolean {
-        return !!(this.storage.getSessionValue(constants.LOGIN.LOGGED_USER));
+        return !!(this.storage.getSessionValue(constants.LOGIN.LOGGED_USER)) && this.isUserAuthenticated;
     }
 
     public logOut() {
@@ -77,7 +77,6 @@ export class Session {
 
     public logIn(email: string, password: string) {
         this.authenticate(email, password);
-        debugger;
         this.storage.setSessionValue(constants.LOGIN.LOGGED_USER, this.user);
         this.isUserLogged();
     }

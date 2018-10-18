@@ -1,6 +1,7 @@
 import { Role } from "./Role";
+import { IJsonGenerator } from "./ijson-generator";
 
-export class User {
+export class User implements IJsonGenerator{
     private _id: any;
     name: string;
     email: string;
@@ -14,6 +15,15 @@ export class User {
         this.password = password;
         this.role = role;
         this.image = image;
+    }
+
+    public json(): any {
+        return {
+            name: this.name,
+            email: this.email,
+            password: this.password,
+            role: this.role
+        };
     }
 
     public doesExist(): boolean {
