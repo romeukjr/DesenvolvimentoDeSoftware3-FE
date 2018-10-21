@@ -29,6 +29,10 @@ import { CommentComponent } from './component/comment/comment.component';
 import { AboutComponent } from './component/about/about.component';
 import { SignupComponent } from './component/signup/signup.component';
 import { SignupDialogComponent } from './component/signup-dialog/signup-dialog.component';
+import { AdmPainelComponent } from './component/adm-painel/adm-painel.component';
+import { AdmUsersComponent } from './component/adm-users/adm-users.component';
+import { AdmPostsComponent } from './component/adm-posts/adm-posts.component';
+import { AdmCommentsComponent } from './component/adm-comments/adm-comments.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +50,11 @@ import { SignupDialogComponent } from './component/signup-dialog/signup-dialog.c
     CommentComponent,
     AboutComponent,
     SignupComponent,
-    SignupDialogComponent
+    SignupDialogComponent,
+    AdmPainelComponent,
+    AdmUsersComponent,
+    AdmPostsComponent,
+    AdmCommentsComponent
   ],
   imports: [
     BrowserModule,
