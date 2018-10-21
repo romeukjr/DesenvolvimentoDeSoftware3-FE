@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,7 +8,9 @@ import { Router } from '@angular/router';
 })
 export class AdmPainelComponent implements OnInit {
   private Router: Router;
-
+  private SelectedTab;
+  @ViewChild('tabs') public Tabs: HTMLUListElement;
+  
   constructor(private router: Router) { 
     this.Router = router;
   }
@@ -20,7 +22,11 @@ export class AdmPainelComponent implements OnInit {
     const target = event.target || event.srcElement || event.currentTarget;
     let element = document.getElementById(target.attributes.id) as HTMLAnchorElement;
 
-    element.classList.add('active');
+    for (let i = 0; i < this.Tabs.childNodes.length; i++) {
+      if (this.Tabs.childNodes[i] as HTMLItem)
+    }
   }
+
+  private is
 
 }
