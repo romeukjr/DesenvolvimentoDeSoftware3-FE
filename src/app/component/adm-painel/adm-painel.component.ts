@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class AdmPainelComponent implements OnInit {
   private Router: Router;
-  private SelectedTab;
+  private activeTab;
   @ViewChild('tabs') public Tabs: HTMLUListElement;
   
   constructor(private router: Router) { 
@@ -21,12 +21,22 @@ export class AdmPainelComponent implements OnInit {
   tabClick(event: any) {
     const target = event.target || event.srcElement || event.currentTarget;
     let element = document.getElementById(target.attributes.id) as HTMLAnchorElement;
+    let tabs = this.Tabs.getElementsByTagName("li");
 
-    for (let i = 0; i < this.Tabs.childNodes.length; i++) {
-      if (this.Tabs.childNodes[i] as HTMLItem)
+    for (let i = 0; i < tabs.length; i++) {
+      let tab = tabs[i].firstElementChild;
+
+      if (tab.classList.contains('active')) {
+        if (tab.id == element.id) {
+          return;
+        }
+
+        tab.classList.remove('active');
+        element.classList.add('active');
+
+        break;
+      }
     }
   }
-
-  private is
 
 }

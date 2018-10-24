@@ -4,10 +4,10 @@
       <a #usersTab class="nav-link" (click)="tabClick($event)" routerLink="/adm/users">Users</a>
     </li>
     <li class="nav-item">
-      <a #postsTab class="nav-link" routerLink="/adm/posts">Posts</a>
+      <a #postsTab class="nav-link" (click)="tabClick($event)" routerLink="/adm/posts">Posts</a>
     </li>
     <li class="nav-item">
-      <a #commentsTab class="nav-link" routerLink="/adm/comments">Comments</a>
+      <a #commentsTab class="nav-link" (click)="tabClick($event)" routerLink="/adm/comments">Comments</a>
     </li>
   </ul>
 </div>
@@ -17,5 +17,8 @@
   </div>
   <div #divContentPosts *ngIf="Router.url == '/adm/posts'">
     <app-adm-posts></app-adm-posts>
+  </div>
+  <div #divContentComments *ngIf="Router.url == '/adm/comments'">
+    <app-adm-comments></app-adm-comments>
   </div>
 </div>
