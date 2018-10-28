@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../../model/entity/User';
 
 @Component({
   selector: 'app-adm-users',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdmUsersComponent implements OnInit {
 
+  private Users: User[];
+
   constructor() { }
 
   ngOnInit() {
+    this.Users = [];
   }
 
 }

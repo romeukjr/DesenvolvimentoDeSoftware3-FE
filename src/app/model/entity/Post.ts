@@ -21,6 +21,10 @@ export class Post {
         this._author = author;
     }
 
+    public getId(): any {
+        return this._id;
+    }
+
     public upVote(): number {
         return ++this.votes;
     }

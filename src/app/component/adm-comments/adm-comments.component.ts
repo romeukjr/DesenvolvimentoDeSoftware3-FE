@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Comment } from '../../model/entity/Comment';
 
 @Component({
   selector: 'app-adm-comments',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdmCommentsComponent implements OnInit {
 
+  private Comments: Comment[];
   constructor() { }
 
   ngOnInit() {
+    this.Comments = [];
   }
 
 }

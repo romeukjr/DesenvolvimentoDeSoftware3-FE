@@ -1,3 +1,57 @@
-<p>
-  adm-posts works!
-</p>
+<div class="ht-tm-codeblock">
+  <div #divCommentsSearch class="card card-adm">
+    <div class="card-body ht-tm-superspecialcardcheat">
+      <h6 class="card-title">Search by author</h6>
+      <div class="ht-tm-codeblock ht-tm-btn-replaceable">
+        <form class="form-inline ht-tm-element">
+          <label class="sr-only" for="inlineFormInputGroup">Username</label>
+          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username">
+          </div>
+          <button type="submit" class="btn btn-primary">Go</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <br />
+  <br />
+  <div #divPostsTable *ngIf="Posts.length > 0">
+    <table class="table table-hover table-striped ht-tm-element">
+      <thead class="thead-dark">
+      <tr>
+        <th>#</th>
+        <th>Post</th>
+        <th>Text</th>
+        <th>Author</th>
+        <th>Date</th>
+        <th>Votes</th>
+        <th>Comments</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let post of Posts">
+        <th scope="row">{{post.getId}}</th>
+        <td>{{post.title}}</td>
+        <td>{{post.description}}</td>
+        <td>{{post._author}}</td>
+        <td>{{post.date}}</td>
+        <td>{{post.votes}}</td>
+        <td>{{post.comments.length}}</td>
+        <td>
+          <a href="#!" class="ht-tm-element btn btn-primary"><span class="fa fa-edit"></span></a>
+          <a href="#!" class="ht-tm-element btn btn-primary"><span class="fa fa-trash-alt"></span></a>
+          <a href="#!" class="ht-tm-element btn btn-primary"><span class="fa fa-unlock-alt"></span></a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div #divNoPosts *ngIf="Posts.length === 0">
+    <div class="ht-tm-element card text-center">
+      <div class="card-body">
+        <h4 class="card-title">Oooops!</h4>
+        <p class="card-text">Not a single comment found.</p>
+      </div>
+    </div>
+  </div>
+</div>

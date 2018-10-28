@@ -1,26 +1,52 @@
 <div class="ht-tm-codeblock">
-  <table class="table table-hover table-striped ht-tm-element">
-    <thead class="thead-dark">
-    <tr>
-      <th>#</th>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Role</th>
-      <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>
-        <a href="#!" class="ht-tm-element btn btn-primary"><span class="fa fa-download"></span></a>
-        <a href="#!" class="ht-tm-element btn btn-primary"><span class="fa fa-download"></span></a>
-        <a href="#!" class="ht-tm-element btn btn-primary"><span class="fa fa-download"></span></a>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+  <div #divUsersSearch class="card card-adm">
+    <div class="card-body ht-tm-superspecialcardcheat">
+      <h6 class="card-title">Search by name</h6>
+      <div class="ht-tm-codeblock ht-tm-btn-replaceable">
+        <form class="form-inline ht-tm-element">
+          <label class="sr-only" for="inlineFormInputGroup">Username</label>
+          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username">
+          </div>
+          <button type="submit" class="btn btn-primary">Go</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <br />
+  <br />
+  <div #divUsersTable *ngIf="Users.length > 0">
+    <table class="table table-hover table-striped ht-tm-element">
+      <thead class="thead-dark">
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of Users">
+        <th scope="row">{{user.getId}}</th>
+        <td>{{user.Name}}</td>
+        <td>{{user.Email}}</td>
+        <td>{{user.Role}}</td>
+        <td>
+          <a href="#!" class="ht-tm-element btn btn-primary"><span class="fa fa-edit"></span></a>
+          <a href="#!" class="ht-tm-element btn btn-primary"><span class="fa fa-trash-alt"></span></a>
+          <a href="#!" class="ht-tm-element btn btn-primary"><span class="fa fa-unlock-alt"></span></a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div #divNoUsers *ngIf="Users.length === 0">
+    <div class="ht-tm-element card text-center">
+      <div class="card-body">
+        <h4 class="card-title">Oooops!</h4>
+        <p class="card-text">Not a single user found.</p>
+      </div>
+    </div>
+  </div>
 </div>

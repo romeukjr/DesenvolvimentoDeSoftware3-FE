@@ -16,6 +16,10 @@ export class User {
         this.image = image;
     }
 
+    public getId(): any {
+        return this._id;
+    }
+
     public doesExist(): boolean {
         //TODO: Consultar banco real
         return true;

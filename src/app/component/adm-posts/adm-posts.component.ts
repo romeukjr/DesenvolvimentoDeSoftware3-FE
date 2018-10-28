@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Post } from '../../model/entity/Post';
 
 @Component({
   selector: 'app-adm-posts',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdmPostsComponent implements OnInit {
 
+  private Posts: Post[];
+
   constructor() { }
 
   ngOnInit() {
+    this.Posts = [];
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,34 +9,50 @@ import { Router } from '@angular/router';
 export class AdmPainelComponent implements OnInit {
   private Router: Router;
   private activeTab;
-  @ViewChild('tabs') public Tabs: HTMLUListElement;
+  @ViewChild('tabs') public Tabs: ElementRef;
   
   constructor(private router: Router) { 
     this.Router = router;
   }
 
   ngOnInit() {
+    
+  }
+
+  ngAfterViewInit() {
+    this.initializeTabSelection();
+  }
+
+  private initializeTabSelection() {
+    let tabs = this.Tabs.nativeElement.getElementsByTagName("li");
+
+    for (let i = 0; i < tabs.length; i++) {
+      let a = tabs[i].firstElementChild;
+
+      if (a.getAttribute('routerlink') === this.Router.url) {
+        a.classList.add('active');
+      }
+    }
   }
 
   tabClick(event: any) {
-    const target = event.target || event.srcElement || event.currentTarget;
-    let element = document.getElementById(target.attributes.id) as HTMLAnchorElement;
-    let tabs = this.Tabs.getElementsByTagName("li");
+    // const target = event.target || event.srcElement || event.currentTarget;
+    // let lis = this.Tabs.nativeElement.getElementsByTagName("li");
 
-    for (let i = 0; i < tabs.length; i++) {
-      let tab = tabs[i].firstElementChild;
+    // for (let i = 0; i < lis.length; i++) {
+    //   let a = lis[i].firstElementChild;
 
-      if (tab.classList.contains('active')) {
-        if (tab.id == element.id) {
-          return;
-        }
+    //   if (a.classList.contains('active')) {
+    //     if (a === target) {
+    //       return;
+    //     }
 
-        tab.classList.remove('active');
-        element.classList.add('active');
+    //     a.classList.remove('active');
+    //     break;
+    //   }
+    // }
 
-        break;
-      }
-    }
+    // target.classList.add('active');
   }
 
 }
