@@ -1,28 +1,29 @@
-import { Component, OnInit, Inject, ViewChild } from '@angular/core';
-import { MatDialogRef, MatDialog } from '@angular/material';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { User } from '../../model/entity/User';
-import { Session } from '../../model/entity/Session';
 import { NgForm } from '@angular/forms';
+import { MatDialogRef } from '@angular/material';
+import { Session } from '../../model/entity/Session';
 
 @Component({
-  selector: 'app-login-dialog',
-  templateUrl: './login-dialog.component.html',
-  styleUrls: ['./login-dialog.component.css']
+  selector: 'app-signin-dialog',
+  templateUrl: './signin-dialog.component.html',
+  styleUrls: ['./signin-dialog.component.css']
 })
-
-export class LoginDialogComponent implements OnInit {
+export class SigninDialogComponent implements OnInit {
 
   @ViewChild('form') public form: NgForm;
   public isEmailRequired: boolean;
   public isEmailInvalid: boolean;
   public isPasswordInvalid: boolean;
+  public isInvalidSignIn: boolean;
 
-  constructor(public thisDialogRef: MatDialogRef<LoginDialogComponent>, private session: Session) { }
+  constructor(public thisDialogRef: MatDialogRef<SigninDialogComponent>, private session: Session) { }
 
   ngOnInit() {
     this.isEmailRequired = false;
     this.isEmailInvalid = false;
     this.isPasswordInvalid = false;
+    this.isInvalidSignIn = false;
   }
 
   private onConfirm(): void {
@@ -35,11 +36,14 @@ export class LoginDialogComponent implements OnInit {
     }
 
     var user = new User(this.form.value.email, this.form.value.password);
+    const userFound = this.session.apiManager.UserApi.findUser(user.email, user.password);
 
-    if (user.doesExist()) {
-      debugger;
+    if (userFound) {
       this.session.logIn(user.email, user.password);
       this.thisDialogRef.close(this.session.getUser());
+    } else {
+      this.isInvalidSignIn = true;
+      return;
     }
   }
 
@@ -92,4 +96,5 @@ export class LoginDialogComponent implements OnInit {
     }
     return true;
   }
+
 }
