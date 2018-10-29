@@ -1,5 +1,5 @@
 <div #divAppUserMenu>
-  <div #divUserMenu class="btn-group" [hidden]="!session.isUserLogged()">
+  <div #divUserMenu class="ht-tm-element btn-group" [hidden]="!session.isUserLogged()">
       <button #btnDropDown class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           {{ this.loggedUser ? this.loggedUser.name : '' }}
       </button>
