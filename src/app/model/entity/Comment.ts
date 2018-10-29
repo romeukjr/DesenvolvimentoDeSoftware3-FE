@@ -16,4 +16,8 @@ export class Comment {
         this.description = description;
         this.date = date;
     }
+
+    public getId(): any {
+        return this._id;
+    }
 }

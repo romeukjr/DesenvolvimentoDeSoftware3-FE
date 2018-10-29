@@ -17,6 +17,10 @@ export class User implements IJsonGenerator{
         this.image = image;
     }
 
+    public getId(): any {
+        return this._id;
+    }
+    
     public json(): any {
         return {
             name: this.name,

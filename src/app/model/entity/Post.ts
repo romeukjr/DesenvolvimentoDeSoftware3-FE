@@ -22,6 +22,10 @@ export class Post implements IJsonGenerator{
         this._author = author;
     }
 
+    public getId(): any {
+        return this._id;
+    }
+    
     public json(): any {
         return {
             title: this.title,

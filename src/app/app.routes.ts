@@ -1,11 +1,12 @@
 import { Routes } from '@angular/router'
 
-import { PainelComponent } from './component/painel/painel.component'
-import { AboutComponent } from './component/about/about.component'
-import { FeaturesComponent } from './component/features/features.component'
+import { PainelComponent } from './component/painel/painel.component';
+import { AdmPainelComponent } from './component/adm-painel/adm-painel.component';
 
 export const ROUTES: Routes = [
     { path: '', component: PainelComponent },
-    { path: 'about', component: AboutComponent },
-    { path: 'features', component: FeaturesComponent },
+    { path: 'adm', redirectTo: "adm/users" },
+    { path: 'adm/users', component: AdmPainelComponent },
+    { path: 'adm/posts', component: AdmPainelComponent },
+    { path: 'adm/comments', component: AdmPainelComponent }
 ]

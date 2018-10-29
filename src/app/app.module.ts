@@ -26,6 +26,10 @@ import { CommentListComponent } from './component/comment-list/comment-list.comp
 import { CommentComponent } from './component/comment/comment.component';
 import { AboutComponent } from './component/about/about.component';
 import { SignupDialogComponent } from './component/signup-dialog/signup-dialog.component';
+import { AdmPainelComponent } from './component/adm-painel/adm-painel.component';
+import { AdmUsersComponent } from './component/adm-users/adm-users.component';
+import { AdmPostsComponent } from './component/adm-posts/adm-posts.component';
+import { AdmCommentsComponent } from './component/adm-comments/adm-comments.component';
 import { UserMenuComponent } from './component/user-menu/user-menu.component';
 import { SigninDialogComponent } from './component/signin-dialog/signin-dialog.component';
 
@@ -44,7 +48,11 @@ import { SigninDialogComponent } from './component/signin-dialog/signin-dialog.c
     AboutComponent,
     SignupDialogComponent,
     UserMenuComponent,
-    SigninDialogComponent
+    SigninDialogComponent,
+    AdmPainelComponent,
+    AdmUsersComponent,
+    AdmPostsComponent,
+    AdmCommentsComponent
   ],
   imports: [
     BrowserModule,
