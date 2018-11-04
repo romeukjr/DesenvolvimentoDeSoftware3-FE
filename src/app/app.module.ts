@@ -76,7 +76,10 @@ import { SigninDialogComponent } from './component/signin-dialog/signin-dialog.c
     SigninDialogComponent,
     SignupDialogComponent,
     PainelComponent,
-    PostDialogComponent
+    PostDialogComponent,
+    AdmUsersComponent,
+    AdmPostsComponent,
+    AdmCommentsComponent
   ]
 })
 export class AppModule { }
