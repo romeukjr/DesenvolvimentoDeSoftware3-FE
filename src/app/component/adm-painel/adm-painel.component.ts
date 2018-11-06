@@ -1,5 +1,10 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
+import { AdmUsersComponent } from '../adm-users/adm-users.component';
+import { MatDialog } from '@angular/material';
+import { Session } from '../../model/entity/Session';
+import { AdmPostsComponent } from '../adm-posts/adm-posts.component';
+import { AdmCommentsComponent } from '../adm-comments/adm-comments.component';
 
 @Component({
   selector: 'app-adm-painel',
@@ -7,16 +12,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./adm-painel.component.css']
 })
 export class AdmPainelComponent implements OnInit {
+  private admUsersComponent: AdmUsersComponent;
+  private admPostsComponent: AdmPostsComponent;
+  private admCommentsComponent: AdmCommentsComponent;
   private Router: Router;
   private activeTab;
   @ViewChild('tabs') public Tabs: ElementRef;
   
-  constructor(private router: Router) { 
+  constructor(private matDialog: MatDialog, private session: Session, private router: Router) { 
     this.Router = router;
   }
 
   ngOnInit() {
-    
+    this.admUsersComponent = new AdmUsersComponent(this.matDialog, this.session);
+    this.admPostsComponent = new AdmPostsComponent(this.matDialog, this.session);
+    this.admCommentsComponent = new AdmCommentsComponent(this.matDialog, this.session);
   }
 
   ngAfterViewInit() {
@@ -33,26 +43,6 @@ export class AdmPainelComponent implements OnInit {
         a.classList.add('active');
       }
     }
-  }
-
-  tabClick(event: any) {
-    // const target = event.target || event.srcElement || event.currentTarget;
-    // let lis = this.Tabs.nativeElement.getElementsByTagName("li");
-
-    // for (let i = 0; i < lis.length; i++) {
-    //   let a = lis[i].firstElementChild;
-
-    //   if (a.classList.contains('active')) {
-    //     if (a === target) {
-    //       return;
-    //     }
-
-    //     a.classList.remove('active');
-    //     break;
-    //   }
-    // }
-
-    // target.classList.add('active');
   }
 
 }

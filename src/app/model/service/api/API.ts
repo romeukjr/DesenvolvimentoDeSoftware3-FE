@@ -30,4 +30,9 @@ export default class API<T extends IJsonGenerator> {
         return await this.http.get(requestUrl)
             .map((res: Response) => <T[]>res.json());
     }
+
+    public delete(request?: String) {
+        const requestUrl = this.URL + request;
+        this.http.delete(requestUrl).subscribe((res: Response) => {});
+    }
 }

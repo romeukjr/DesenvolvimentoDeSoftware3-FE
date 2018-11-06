@@ -15,20 +15,23 @@ export default class UserAPI {
 
     private assemble(): void {
         this.api = new API<User>(this.http);
-        this.refreshUsers();
+        this.getUsers();
     }
 
     public createUser(user: User) {
         this.api.create(user, this.REQUEST_URL);
     }
 
-    public async refreshUsers() {
+    public async getUsers() {
         let that = this;
+        this.users = [];
         let observer = await this.api.getDataCollection(this.REQUEST_URL);
 
         await observer.subscribe((data: User[]) => {
             that.users =  data;
         });
+
+        return observer;
     }
 
     public async getUser(id: string): Promise<User> {
@@ -50,5 +53,10 @@ export default class UserAPI {
         }
 
         return user;
+    }
+
+    public deleteUser(id: any) {
+        this.api.delete(this.REQUEST_URL + "/" + id);
+        this.getUsers();
     }
 }

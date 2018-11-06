@@ -42,7 +42,7 @@ export class SignupDialogComponent implements OnInit {
 
     if (!userFound) {
       this.session.apiManager.UserApi.createUser(user);
-      this.session.apiManager.UserApi.refreshUsers();
+      this.session.apiManager.UserApi.getUsers();
       this.thisDialogRef.close(this.session.getUser());
     } else {
       this.userAlreadyExists = true;

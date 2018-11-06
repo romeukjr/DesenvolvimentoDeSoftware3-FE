@@ -20,11 +20,9 @@ import { PainelComponent } from './component/painel/painel.component';
 import { PostListComponent } from './component/post-list/post-list.component';
 import { PostDialogComponent } from './component/post-dialog/post-dialog.component';
 import { PostComponent } from './component/post/post.component';
-import { FeaturesComponent } from './component/features/features.component';
 import { CommentCreateComponent } from './component/comment-create/comment-create.component';
 import { CommentListComponent } from './component/comment-list/comment-list.component';
 import { CommentComponent } from './component/comment/comment.component';
-import { AboutComponent } from './component/about/about.component';
 import { SignupDialogComponent } from './component/signup-dialog/signup-dialog.component';
 import { AdmPainelComponent } from './component/adm-painel/adm-painel.component';
 import { AdmUsersComponent } from './component/adm-users/adm-users.component';
@@ -32,6 +30,7 @@ import { AdmPostsComponent } from './component/adm-posts/adm-posts.component';
 import { AdmCommentsComponent } from './component/adm-comments/adm-comments.component';
 import { UserMenuComponent } from './component/user-menu/user-menu.component';
 import { SigninDialogComponent } from './component/signin-dialog/signin-dialog.component';
+import { EditUserDialogComponent } from './component/edit-user-dialog/edit-user-dialog.component';
 
 @NgModule({
   declarations: [
@@ -41,18 +40,17 @@ import { SigninDialogComponent } from './component/signin-dialog/signin-dialog.c
     PostListComponent,
     PostDialogComponent,
     PostComponent,
-    FeaturesComponent,
     CommentCreateComponent,
     CommentListComponent,
     CommentComponent,
-    AboutComponent,
     SignupDialogComponent,
     UserMenuComponent,
     SigninDialogComponent,
     AdmPainelComponent,
     AdmUsersComponent,
     AdmPostsComponent,
-    AdmCommentsComponent
+    AdmCommentsComponent,
+    EditUserDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -79,7 +77,8 @@ import { SigninDialogComponent } from './component/signin-dialog/signin-dialog.c
     PostDialogComponent,
     AdmUsersComponent,
     AdmPostsComponent,
-    AdmCommentsComponent
+    AdmCommentsComponent,
+    EditUserDialogComponent
   ]
 })
 export class AppModule { }
