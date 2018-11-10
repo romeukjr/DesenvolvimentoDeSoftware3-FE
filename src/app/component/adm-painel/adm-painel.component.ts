@@ -24,7 +24,7 @@ export class AdmPainelComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.admUsersComponent = new AdmUsersComponent(this.matDialog, this.session);
+    this.admUsersComponent = new AdmUsersComponent(this.matDialog, this.session, this.router);
     this.admPostsComponent = new AdmPostsComponent(this.matDialog, this.session);
     this.admCommentsComponent = new AdmCommentsComponent(this.matDialog, this.session);
   }

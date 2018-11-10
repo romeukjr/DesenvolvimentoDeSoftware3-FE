@@ -3,6 +3,8 @@ import { User } from '../../model/entity/User';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { Session } from '../../model/entity/Session';
 import { EditUserDialogComponent } from '../edit-user-dialog/edit-user-dialog.component';
+import { RoleFormatter } from 'src/app/model/formatter/RoleFormatter';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-adm-users',
@@ -15,11 +17,10 @@ export class AdmUsersComponent implements OnInit {
   private editUserDialogRef: MatDialogRef<EditUserDialogComponent>;
   private Users: User[];
 
-  constructor(private dialog: MatDialog, private session: Session) { }
+  constructor(private dialog: MatDialog, private session: Session, private router: Router) { }
 
   ngOnInit() {
-    this.editUserDialogComponent = new EditUserDialogComponent(this.editUserDialogRef, this.session);
-
+    //this.editUserDialogComponent = new EditUserDialogComponent(this.editUserDialogRef, this.session);
     this.getUsers();
   }
 
@@ -38,24 +39,20 @@ export class AdmUsersComponent implements OnInit {
     this.getUsers();
   }
 
-  private edit(index: any) {
-    const that = this;
-    this.openEditUserDialog(index);
-
-    this.editUserDialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        that.getUsers();
-      }
-    });
+  private edit(id: any) {
+    this.router.navigate(['/adm/users/edit', id]);
   }
 
-  private openEditUserDialog(index: any) {
-    this.editUserDialogRef = this.dialog.open(EditUserDialogComponent, {
-      autoFocus: true,
-      closeOnNavigation: true,
-    });
+  // private openEditUserDialog(index: any) {
+  //   this.editUserDialogRef = this.dialog.open(EditUserDialogComponent, {
+  //     autoFocus: true,
+  //     closeOnNavigation: true,
+  //   });
 
-    this.editUserDialogComponent.User = this.Users[index];
-    this.editUserDialogRef.componentInstance = this.editUserDialogComponent;
-  }
+  //   const user = this.Users[index];
+  //   this.editUserDialogComponent.Id = user._id;
+  //   this.editUserDialogComponent.Name = user.name;
+  //   this.editUserDialogComponent.Email = user.email;
+  //   this.editUserDialogRef.componentInstance = this.editUserDialogComponent;
+  // }
 }

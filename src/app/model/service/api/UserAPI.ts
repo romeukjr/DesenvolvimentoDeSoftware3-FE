@@ -34,7 +34,7 @@ export default class UserAPI {
         return observer;
     }
 
-    public async getUser(id: string): Promise<User> {
+    public async getUser(id: string) {
         let user: User;
 
         let observer = await this.api.getData(this.REQUEST_URL + "/" + id);
@@ -42,7 +42,7 @@ export default class UserAPI {
             user = data
         });
 
-        return user;
+        return observer;
     }
 
     public findUser(email: String, password: String): User {
@@ -50,6 +50,16 @@ export default class UserAPI {
 
         if (this.users && this.users.length > 0) {
             user = this.users.find((u) => u.email == email && u.password == password);
+        }
+
+        return user;
+    }
+
+    public findUserById(id: any): User {
+        let user;
+
+        if (this.users && this.users.length > 0) {
+            user = this.users.find((u) => u._id == id);
         }
 
         return user;
