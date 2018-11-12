@@ -19,6 +19,22 @@ export default class API<T extends IJsonGenerator> {
         this.http.post(requestUrl, body, options).subscribe((res: Response) => {});
     }
 
+    public async update(object: T, request?: String): Promise<Observable<void>> {
+        const requestUrl = this.URL + request;
+        const body = object;
+        let result;
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        let options = new RequestOptions({ headers : headers});
+        options.body = body;
+        return await this.http.put(requestUrl, body, options)
+                              .map((res: Response) => { 
+                                    result = res.text 
+                                });
+
+        
+    }
+
     public async getData(request?: String): Promise<Observable<T>> {
         const requestUrl = this.URL + request;
         return await this.http.get(requestUrl)

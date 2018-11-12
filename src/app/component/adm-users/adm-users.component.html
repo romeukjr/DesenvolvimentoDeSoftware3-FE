@@ -34,9 +34,9 @@
         <td>{{user.name}}</td>
         <td>{{user.email}}</td>
         <td >
-          <label [hidden]="user.role !== 0" value="None"></label>
-          <label [hidden]="user.role !== 1" value="Regular"></label>
-          <label [hidden]="user.role !== 2" value="Administrator"></label>
+          <label [hidden]="user.role !== 0" value="None">None</label>
+          <label [hidden]="user.role !== 1" value="Regular">Regular</label>
+          <label [hidden]="user.role !== 2" value="Administrator">Administrator</label>
         </td>
         <td>
           <button (click)="edit(user._id)" class="ht-tm-element btn btn-primary"><span class="fa fa-edit"></span></button>

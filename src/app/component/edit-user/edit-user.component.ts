@@ -1,18 +1,21 @@
-import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Session } from '../../model/entity/Session';
-import { MatDialogRef, MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material';
 import { User } from '../../model/entity/User';
 import { Router } from '@angular/router';
-import { RoleFormatter } from 'src/app/model/formatter/RoleFormatter';
 import { Role } from 'src/app/model/entity/Role';
+import { RoleFormatter } from 'src/app/model/formatter/RoleFormatter';
 
 @Component({
-  selector: 'app-edit-user-dialog',
-  templateUrl: './edit-user-dialog.component.html',
-  styleUrls: ['./edit-user-dialog.component.css']
+  selector: 'app-edit-user',
+  templateUrl: './edit-user.component.html',
+  styleUrls: ['./edit-user.component.css']
 })
-export class EditUserDialogComponent implements OnInit {
+export class EditUserComponent implements OnInit {
 
+  @ViewChild("userName") UserName: ElementRef;
+  @ViewChild("userEmail") UserEmail: ElementRef;
+  @ViewChild("userRole") UserRole: ElementRef;
   public Roles: Role;
   public User: User;
 
@@ -46,5 +49,22 @@ export class EditUserDialogComponent implements OnInit {
 
   private isRoleAdm(userRole: Role): boolean {
     return userRole == Role.ADM;
+  }
+
+  private async update() {
+    let res;
+    this.loadUserInfo();
+    let observer = await this.session.apiManager.UserApi.updateUser(this.User);
+
+    await observer.subscribe((response: any) => {
+      res = response;
+    });
+  }
+
+  private loadUserInfo() {
+    this.User.name = this.UserName.nativeElement.value;
+    this.User.email = this.UserEmail.nativeElement.value;
+    this.User.role = this.UserRole.nativeElement.selectedIndex+1;
+    this.User.roleDescription = RoleFormatter.roleToString(this.User.role);
   }
 }

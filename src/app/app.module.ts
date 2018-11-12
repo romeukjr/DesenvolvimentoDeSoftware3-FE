@@ -30,7 +30,7 @@ import { AdmPostsComponent } from './component/adm-posts/adm-posts.component';
 import { AdmCommentsComponent } from './component/adm-comments/adm-comments.component';
 import { UserMenuComponent } from './component/user-menu/user-menu.component';
 import { SigninDialogComponent } from './component/signin-dialog/signin-dialog.component';
-import { EditUserDialogComponent } from './component/edit-user-dialog/edit-user-dialog.component';
+import { EditUserComponent } from './component/edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +50,7 @@ import { EditUserDialogComponent } from './component/edit-user-dialog/edit-user-
     AdmUsersComponent,
     AdmPostsComponent,
     AdmCommentsComponent,
-    EditUserDialogComponent
+    EditUserComponent
   ],
   imports: [
     BrowserModule,
@@ -78,7 +78,7 @@ import { EditUserDialogComponent } from './component/edit-user-dialog/edit-user-
     AdmUsersComponent,
     AdmPostsComponent,
     AdmCommentsComponent,
-    EditUserDialogComponent
+    EditUserComponent
   ]
 })
 export class AppModule { }
