@@ -6,9 +6,9 @@
         <form class="form-inline ht-tm-element">
           <label class="sr-only" for="inlineFormInputGroup">Username</label>
           <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username">
+            <input #txtSearch type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username">
           </div>
-          <button type="submit" class="btn btn-primary">Go</button>
+          <button type="submit" class="btn btn-primary" (click)="search(txtSearch.value)" >Go</button>
         </form>
       </div>
     </div>
@@ -30,17 +30,16 @@
       </thead>
       <tbody>
       <tr *ngFor="let post of Posts">
-        <th scope="row">{{post.getId}}</th>
+        <th scope="row">{{post._id}}</th>
         <td>{{post.title}}</td>
         <td>{{post.description}}</td>
-        <td>{{post._author}}</td>
+        <td>{{post._author.name}}</td>
         <td>{{post.date}}</td>
         <td>{{post.votes}}</td>
         <td>{{post.comments.length}}</td>
         <td>
-          <a href="#!" class="ht-tm-element btn btn-primary"><span class="fa fa-edit"></span></a>
-          <a href="#!" class="ht-tm-element btn btn-primary"><span class="fa fa-trash-alt"></span></a>
-          <a href="#!" class="ht-tm-element btn btn-primary"><span class="fa fa-unlock-alt"></span></a>
+          <a (click)="edit(post._id)"  class="ht-tm-element btn btn-primary"><span class="fa fa-edit"></span></a>
+          <a (click)="delete(post._id)" class="ht-tm-element btn btn-primary"><span class="fa fa-unlock-alt"></span></a>
         </td>
       </tr>
       </tbody>

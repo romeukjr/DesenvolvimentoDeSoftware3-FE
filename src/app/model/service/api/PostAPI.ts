@@ -25,6 +25,8 @@ export default class PostAPI {
         await observer.subscribe((data: Post[]) => {
             this.posts =  data;
         });
+
+        return observer;
     }
 
     public async getPost(id: string): Promise<Post> {
@@ -66,5 +68,25 @@ export default class PostAPI {
         });
 
         return commentsIds;
+    }
+
+    public findPost(title: String): Post {
+        let user;
+
+        if (this.posts && this.posts.length > 0) {
+            user = this.posts.find((u) => u.title == title);
+        }
+
+        return user;
+    }
+
+    public findPostById(id: any): Post {
+        let user;
+
+        if (this.posts && this.posts.length > 0) {
+            user = this.posts.find((u) => u._id == id);
+        }
+
+        return user;
     }
 }

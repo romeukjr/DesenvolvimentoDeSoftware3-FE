@@ -38,4 +38,9 @@ export class AdmUsersComponent implements OnInit {
     this.router.navigate(['/adm/users/edit', id]);
   }
 
+  private search(text: any) {
+    let regExp = new RegExp(text, "gi");
+    this.Users = this.session.apiManager.UserApi.users.filter((user) => !!(user.email.match(regExp) || user.name.match(regExp)));
+  }
+
 }

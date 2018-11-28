@@ -1,14 +1,14 @@
 <div class="ht-tm-codeblock">
   <div #divUsersSearch class="card card-adm">
     <div class="card-body ht-tm-superspecialcardcheat">
-      <h6 class="card-title">Search by name</h6>
+      <h6 class="card-title">Search by name/email</h6>
       <div class="ht-tm-codeblock ht-tm-btn-replaceable">
         <form class="form-inline ht-tm-element">
           <label class="sr-only" for="inlineFormInputGroup">Username</label>
           <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username">
+            <input #txtSearch type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username">
           </div>
-          <button type="submit" class="btn btn-primary">Go</button>
+          <button type="submit" class="btn btn-primary" (click)="search(txtSearch.value)" >Go</button>
         </form>
       </div>
     </div>

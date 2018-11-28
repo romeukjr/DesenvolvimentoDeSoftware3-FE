@@ -31,6 +31,7 @@ import { AdmCommentsComponent } from './component/adm-comments/adm-comments.comp
 import { UserMenuComponent } from './component/user-menu/user-menu.component';
 import { SigninDialogComponent } from './component/signin-dialog/signin-dialog.component';
 import { EditUserComponent } from './component/edit-user/edit-user.component';
+import { EditPostComponent } from './component/edit-post/edit-post.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { EditUserComponent } from './component/edit-user/edit-user.component';
     AdmUsersComponent,
     AdmPostsComponent,
     AdmCommentsComponent,
-    EditUserComponent
+    EditUserComponent,
+    EditPostComponent
   ],
   imports: [
     BrowserModule,

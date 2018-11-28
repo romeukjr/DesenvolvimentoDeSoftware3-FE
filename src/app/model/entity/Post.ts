@@ -3,7 +3,7 @@ import { User } from "./User";
 import { IJsonGenerator } from "./ijson-generator";
 
 export class Post implements IJsonGenerator{
-    private _id: any;
+    _id: any;
     title: string;
     description: string;
     link : string;
