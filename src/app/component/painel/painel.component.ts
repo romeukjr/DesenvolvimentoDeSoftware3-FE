@@ -44,10 +44,12 @@ export class PainelComponent implements OnInit {
     });
     this.dialogRef.componentInstance = this.postDialogComponent;
 
+    let that = this;
     this.dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.postList.lstPost.unshift(result);
-        this.postList.reload();
+        that.postList.lstPost.unshift(result);
+        //that.postList.reload();
+        that.postListComponent.lstPost.push(result);
       }
     });
   }

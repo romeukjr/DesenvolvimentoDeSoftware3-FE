@@ -21,9 +21,11 @@ export default class PostAPI {
 
     public async getPosts() {
         let observer = await this.api.getDataCollection(this.REQUEST_URL);
+        this.posts = [];
+        let that = this;
 
         await observer.subscribe((data: Post[]) => {
-            this.posts =  data;
+            that.posts =  data;
         });
 
         return observer;
@@ -41,9 +43,10 @@ export default class PostAPI {
     }
 
     public createPost(post: Post) {
-        const body = this.buildCreateBody(post);
-        this.http.post(this.REQUEST_URL, body);
-        this.getPosts();
+        this.api.create(post, this.REQUEST_URL);
+        // const body = this.buildCreateBody(post);
+        // this.http.post(this.REQUEST_URL, body);
+        // this.getPosts();
     }
 
     private buildCreateBody(post: Post) {

@@ -15,6 +15,7 @@ export class CommentListComponent implements OnInit {
   constructor(private session: Session) { }
 
   ngOnInit() {
+    this.post.comments = [];
   }
 
   private toggleCommentVisibility(): void {

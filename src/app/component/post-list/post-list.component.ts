@@ -18,12 +18,12 @@ export class PostListComponent implements OnInit {
   public a: User[];
   public lstPost: Post[];
   post1 = new Post('Lorem ipsum facilisis', 'Lorem ipsum dapibus at, conubia aenean eros commodo, feugiat nam', '', new Date(), [
-    { author: "Author 1", text: "Cool glasses dawg!", date: new Date()},
-    { author: "Author 2", text: "Ride Him, Cowboy!", date: new Date()},
-    { author: "Author 3", text: "Give a Man a Fish", date: new Date()},
+    { author: "Author 1", description: "Cool glasses dawg!", date: new Date()},
+    { author: "Author 2", description: "Ride Him, Cowboy!", date: new Date()},
+    { author: "Author 3", description: "Give a Man a Fish", date: new Date()},
   ], 2, this.session.getUser());
   post2 = new Post('Lorem ipsum quisque', 'Lorem ipsum inceptos pulvinar sed vulputate, nunc pretium in elit', '', new Date(), [
-    { author: "Author 1", text: "A Piece of Cake"},
+    { author: "Author 1", description: "A Piece of Cake"},
   ]);
   post3 = new Post('Lorem ipsum lobortis', 'Lorem ipsum purus etiam morbi semper, a sociosqu malesuada senectus', '', new Date(), []);
 
@@ -32,10 +32,21 @@ export class PostListComponent implements OnInit {
 
   ngOnInit() {
     this.postComponent = new PostComponent(this.session);
+    this.lstPost = [];
     this.lstPost = [this.post1, this.post2, this.post3];
+    this.reload();
   }
 
-  public reload(): void {
-    Component.bind(this.lstPost);
+  public async reload() {
+    let that = this;
+    let obs = await this.session.apiManager.PostApi.getPosts();
+
+    await obs.subscribe((data) => {
+      if (data) {
+        that.lstPost = data;
+      }
+    });
+
+    //Component.bind(this.lstPost);
   }
 }

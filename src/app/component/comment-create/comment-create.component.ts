@@ -3,6 +3,7 @@ import { Session } from '../../model/entity/Session';
 import { Post } from '../../model/entity/Post';
 import { Comment } from '../../model/entity/Comment';
 import { NgForm } from '@angular/forms';
+import { ObjectFormatter } from 'src/app/model/formatter/ObjectFormatter';
 
 @Component({
   selector: 'app-comment-create',
@@ -10,16 +11,18 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./comment-create.component.css']
 })
 export class CommentCreateComponent implements OnInit {
-  @Input() post: Post;
+  @Input() post: JSON;
+  private Post: Post;
   
   constructor(private session: Session) { }
 
   ngOnInit() {
+    this.Post = ObjectFormatter.postFromJson(this.post);
   }
 
   private onSubmitComment(commentForm: any): void {
-    const comment: Comment = new Comment(this.post, this.session.getUser(), commentForm.form.value.text, "", new Date());
-    this.post.addComment(comment);
+    const comment: Comment = new Comment(this.Post, this.session.getUser(), commentForm.form.value.text, "", new Date());
+    this.Post.addComment(comment);
   }
 
   private isCommentDisabled(comment: any): boolean {

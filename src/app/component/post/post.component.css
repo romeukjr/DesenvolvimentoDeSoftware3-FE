@@ -24,4 +24,10 @@ ul {
 
 .comment-list-component {
   width: 100%;
+  min-width: 100%;;
+}
+
+.container {
+  max-width: 100%;
+  width: 100vw;
 }
